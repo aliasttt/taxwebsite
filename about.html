@@ -3,132 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="درباره مشاور مالیاتی با ۳۰ سال سابقه در اداره مالیات ایران">
-    <title>درباره ما | مشاور مالیاتی حرفه‌ای</title>
+    <meta name="description" content="درباره مشاوره مالیاتی حرفه‌ای - بیش از ۳۰ سال تجربه در زمینه مشاوره مالیاتی">
+    <title>درباره ما - مشاوره مالیاتی حرفه‌ای</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .about-hero {
+            background: var(--space-gradient);
+            padding: 12rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(108, 99, 255, 0.2) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            color: var(--text-color);
+        }
+
+        .about-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-shadow: var(--neon-glow);
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            line-height: 2;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            background: var(--glass-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--neon-glow);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            text-shadow: var(--neon-glow);
+        }
+
+        .stat-label {
+            color: var(--text-color);
+            font-size: 1.2rem;
+        }
+
+        .about-image {
+            position: relative;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: var(--neon-glow);
+        }
+
+        .experience-section {
+            padding: 8rem 0;
+            background: var(--dark-bg);
+            position: relative;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .experience-card {
+            background: var(--glass-bg);
+            padding: 3rem;
+            border-radius: 30px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--neon-glow);
+        }
+
+        .experience-card i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            text-shadow: var(--neon-glow);
+        }
+
+        .experience-card h3 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-card p {
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
+    <div class="background-animation"></div>
+    
     <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="logo">
-                    <a href="index.html">مشاور مالیاتی</a>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">خانه</a></li>
-                    <li><a href="about.html" class="active">درباره ما</a></li>
-                    <li><a href="services.html">خدمات</a></li>
-                    <li><a href="blog/">بلاگ</a></li>
-                    <li><a href="contact.html">تماس</a></li>
-                </ul>
-                <div class="mobile-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
+        <nav class="nav container">
+            <div class="logo">
+                <a href="index.html">مشاوره مالیاتی</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">خانه</a></li>
+                <li><a href="services.html">خدمات</a></li>
+                <li><a href="about.html" class="active">درباره ما</a></li>
+                <li><a href="contact.html">تماس با ما</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
     </header>
 
-    <!-- About Hero -->
     <section class="about-hero">
         <div class="container">
             <div class="about-content">
-                <h1>درباره ما</h1>
-                <p>۳۰ سال تجربه در امور مالیاتی ایران</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Details -->
-    <section class="about-details">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="images/consultant.jpg" alt="مشاور مالیاتی">
-                </div>
                 <div class="about-text">
-                    <h2>سوابق حرفه‌ای</h2>
-                    <p>با بیش از ۳۰ سال تجربه در اداره مالیات ایران، من آماده ارائه خدمات مشاوره مالیاتی به شما هستم. در طول این سال‌ها، با صدها پرونده مالیاتی کار کرده‌ام و به مشتریان مختلف در زمینه‌های مختلف مالیاتی کمک کرده‌ام.</p>
-                    
-                    <h3>مدارک و گواهینامه‌ها</h3>
-                    <ul>
-                        <li>کارشناسی ارشد حسابداری</li>
-                        <li>گواهینامه حرفه‌ای مشاور مالیاتی</li>
-                        <li>عضو انجمن حسابداران رسمی ایران</li>
-                    </ul>
-
-                    <h3>تخصص‌ها</h3>
-                    <ul>
-                        <li>تنظیم اظهارنامه مالیاتی</li>
-                        <li>مشاوره در زمینه معافیت‌های مالیاتی</li>
-                        <li>پیگیری پرونده‌های مالیاتی</li>
-                        <li>کاهش و بخشودگی جریمه‌های مالیاتی</li>
-                    </ul>
+                    <h1>درباره ما</h1>
+                    <p>ما با بیش از ۳۰ سال تجربه در زمینه مشاوره مالیاتی، به عنوان یکی از معتبرترین شرکت‌های مشاوره مالیاتی در ایران شناخته می‌شویم. تیم متخصص ما با دانش عمیق از قوانین مالیاتی و تجربه گسترده در زمینه‌های مختلف مالیاتی، آماده خدمت‌رسانی به شما هستند.</p>
+                    <p>هدف ما ارائه خدمات مشاوره مالیاتی با بالاترین کیفیت و در کمترین زمان ممکن است. ما به مشتریان خود کمک می‌کنیم تا با استفاده از قوانین مالیاتی، بهترین تصمیم‌ها را برای کسب و کار خود اتخاذ کنند.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">۳۰+</div>
+                            <div class="stat-label">سال تجربه</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">۱۰۰۰+</div>
+                            <div class="stat-label">مشتری راضی</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">۵۰+</div>
+                            <div class="stat-label">مشاور متخصص</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">۹۸٪</div>
+                            <div class="stat-label">رضایت مشتری</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/about-image.jpg" alt="مشاوره مالیاتی">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="experience">
+    <section class="experience-section">
         <div class="container">
-            <h2>تجربیات کاری</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="year">۱۴۰۰ - اکنون</div>
-                    <div class="content">
-                        <h3>مشاور مالیاتی مستقل</h3>
-                        <p>ارائه خدمات مشاوره مالیاتی به شرکت‌ها و اشخاص حقیقی</p>
-                    </div>
+            <h2>چرا ما را انتخاب کنید؟</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <i class="fas fa-award"></i>
+                    <h3>تخصص و تجربه</h3>
+                    <p>تیم ما متشکل از کارشناسان مجرب و با تجربه در زمینه مالیات است که می‌توانند بهترین راهنمایی را به شما ارائه دهند.</p>
                 </div>
-                <div class="timeline-item">
-                    <div class="year">۱۳۸۰ - ۱۴۰۰</div>
-                    <div class="content">
-                        <h3>مدیر بخش مالیات</h3>
-                        <p>مدیریت بخش مالیات در اداره کل امور مالیاتی تهران</p>
-                    </div>
+                <div class="experience-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>صرفه‌جویی در زمان</h3>
+                    <p>با استفاده از خدمات ما، می‌توانید در زمان و هزینه‌های خود صرفه‌جویی کنید و تمرکز خود را بر روی کسب و کار خود بگذارید.</p>
                 </div>
-                <div class="timeline-item">
-                    <div class="year">۱۳۷۰ - ۱۳۸۰</div>
-                    <div class="content">
-                        <h3>کارشناس ارشد مالیات</h3>
-                        <p>بررسی و رسیدگی به پرونده‌های مالیاتی</p>
-                    </div>
+                <div class="experience-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>امنیت و اعتماد</h3>
+                    <p>ما متعهد به حفظ محرمانگی اطلاعات مشتریان خود هستیم و تمامی خدمات را با بالاترین استانداردهای امنیتی ارائه می‌دهیم.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>درباره ما</h3>
-                    <p>ارائه خدمات مشاوره مالیاتی حرفه‌ای با ۳۰ سال تجربه در اداره مالیات ایران</p>
+                    <p>ما با بیش از ۳۰ سال تجربه در زمینه مشاوره مالیاتی، آماده خدمت‌رسانی به شما هستیم.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>تماس سریع</h3>
+                    <h3>دسترسی سریع</h3>
                     <ul>
-                        <li>تلفن: ۰۲۱-XXXXXXXX</li>
-                        <li>ایمیل: info@example.com</li>
-                        <li>آدرس: تهران، خیابان ولیعصر</li>
+                        <li><a href="services.html">خدمات ما</a></li>
+                        <li><a href="about.html">درباره ما</a></li>
+                        <li><a href="contact.html">تماس با ما</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تماس با ما</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> تهران، خیابان ولیعصر</li>
+                        <li><i class="fas fa-phone"></i> ۰۲۱-۱۲۳۴۵۶۷۸</li>
+                        <li><i class="fas fa-envelope"></i> info@taxconsultant.ir</li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>شبکه‌های اجتماعی</h3>
                     <div class="social-links">
-                        <a href="#" class="social-link">اینستاگرام</a>
-                        <a href="#" class="social-link">لینکدین</a>
-                        <a href="#" class="social-link">تلگرام</a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; ۱۴۰۳ تمامی حقوق محفوظ است.</p>
+                <p>&copy; ۱۴۰۳ مشاوره مالیاتی. تمامی حقوق محفوظ است.</p>
             </div>
         </div>
     </footer>
