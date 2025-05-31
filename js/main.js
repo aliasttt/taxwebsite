@@ -17,57 +17,41 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Create Geometric Shapes
-function createShapes() {
+// Create Space Particles
+function createParticles() {
     const background = document.querySelector('.background-animation');
-    const shapes = ['circle', 'square', 'triangle'];
-    const colors = ['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.05)', 'rgba(255, 255, 255, 0.15)'];
+    const particleCount = 50;
     
-    for (let i = 0; i < 15; i++) {
-        const shape = document.createElement('div');
-        shape.className = 'geometric-shape';
-        shape.style.position = 'absolute';
-        shape.style.width = Math.random() * 100 + 50 + 'px';
-        shape.style.height = shape.style.width;
-        shape.style.background = colors[Math.floor(Math.random() * colors.length)];
-        shape.style.top = Math.random() * 100 + '%';
-        shape.style.left = Math.random() * 100 + '%';
-        shape.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)] === 'circle' ? '50%' : '0';
-        shape.style.transform = `rotate(${Math.random() * 360}deg)`;
-        shape.style.opacity = '0';
-        shape.style.transition = 'all 0.5s ease';
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.position = 'absolute';
+        particle.style.width = Math.random() * 3 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.background = 'rgba(255, 255, 255, 0.8)';
+        particle.style.borderRadius = '50%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.opacity = Math.random() * 0.5 + 0.5;
+        particle.style.animation = `float ${Math.random() * 10 + 5}s linear infinite`;
+        particle.style.animationDelay = Math.random() * 5 + 's';
         
-        if (shapes[Math.floor(Math.random() * shapes.length)] === 'triangle') {
-            shape.style.width = '0';
-            shape.style.height = '0';
-            shape.style.borderLeft = '50px solid transparent';
-            shape.style.borderRight = '50px solid transparent';
-            shape.style.borderBottom = '86.6px solid ' + colors[Math.floor(Math.random() * colors.length)];
-            shape.style.background = 'transparent';
-        }
-        
-        background.appendChild(shape);
-        
-        // Animate shape
-        setTimeout(() => {
-            shape.style.opacity = '1';
-            shape.style.transform = `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px) rotate(${Math.random() * 360}deg)`;
-        }, i * 100);
+        background.appendChild(particle);
     }
 }
 
 // Parallax Effect for Background Animation
 document.addEventListener('mousemove', (e) => {
     const background = document.querySelector('.background-animation');
-    const shapes = document.querySelectorAll('.geometric-shape');
+    const particles = document.querySelectorAll('.particle');
     const x = e.clientX / window.innerWidth;
     const y = e.clientY / window.innerHeight;
     
     background.style.transform = `rotateX(${y * 10}deg) rotateY(${x * 10}deg)`;
     
-    shapes.forEach((shape, index) => {
+    particles.forEach((particle, index) => {
         const speed = 1 + index * 0.1;
-        shape.style.transform = `translate(${x * 50 * speed}px, ${y * 50 * speed}px) rotate(${x * 360}deg)`;
+        particle.style.transform = `translate(${x * 50 * speed}px, ${y * 50 * speed}px)`;
     });
 });
 
@@ -96,10 +80,12 @@ document.querySelectorAll('.service-card, .footer-section, .contact-item').forEa
 document.querySelectorAll('.service-card').forEach(card => {
     card.addEventListener('mouseenter', () => {
         card.style.transform = 'translateY(-15px) rotateX(10deg)';
+        card.style.boxShadow = '0 0 20px rgba(108, 99, 255, 0.6), 0 0 40px rgba(108, 99, 255, 0.4), 0 0 60px rgba(108, 99, 255, 0.2)';
     });
     
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'translateY(0) rotateX(0)';
+        card.style.boxShadow = 'none';
     });
 });
 
@@ -140,7 +126,7 @@ style.textContent = `
         top: 0;
         left: 0;
         height: 4px;
-        background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+        background: linear-gradient(to right, var(--primary-color), var(--accent-color));
         z-index: 1001;
         transition: width 0.1s ease;
     }
@@ -160,9 +146,27 @@ style.textContent = `
         }
     }
     
-    .geometric-shape {
+    .particle {
         pointer-events: none;
         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    @keyframes float {
+        0% {
+            transform: translateY(0) translateX(0);
+        }
+        25% {
+            transform: translateY(-100px) translateX(50px);
+        }
+        50% {
+            transform: translateY(-200px) translateX(0);
+        }
+        75% {
+            transform: translateY(-100px) translateX(-50px);
+        }
+        100% {
+            transform: translateY(0) translateX(0);
+        }
     }
 `;
 document.head.appendChild(style);
@@ -180,7 +184,7 @@ menuItems.forEach(item => {
 // Add loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
-    createShapes();
+    createParticles();
     animateHeroContent();
 });
 
@@ -254,10 +258,12 @@ if (contactForm) {
 document.querySelectorAll('.contact-item').forEach(item => {
     item.addEventListener('mouseenter', () => {
         item.style.transform = 'scale(1.1) translateZ(30px)';
+        item.style.boxShadow = '0 0 20px rgba(108, 99, 255, 0.6), 0 0 40px rgba(108, 99, 255, 0.4), 0 0 60px rgba(108, 99, 255, 0.2)';
     });
     
     item.addEventListener('mouseleave', () => {
         item.style.transform = 'scale(1) translateZ(0)';
+        item.style.boxShadow = 'none';
     });
 });
 
@@ -265,9 +271,11 @@ document.querySelectorAll('.contact-item').forEach(item => {
 document.querySelectorAll('.social-link').forEach(link => {
     link.addEventListener('mouseenter', () => {
         link.style.transform = 'translateY(-5px) translateZ(30px)';
+        link.style.boxShadow = '0 0 20px rgba(108, 99, 255, 0.6), 0 0 40px rgba(108, 99, 255, 0.4), 0 0 60px rgba(108, 99, 255, 0.2)';
     });
     
     link.addEventListener('mouseleave', () => {
         link.style.transform = 'translateY(0) translateZ(0)';
+        link.style.boxShadow = 'none';
     });
 }); 
