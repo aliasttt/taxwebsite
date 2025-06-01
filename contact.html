@@ -6,33 +6,29 @@
     <meta name="description" content="تماس با مشاور مالیاتی حرفه‌ای - درخواست مشاوره رایگان">
     <title>تماس با ما | مشاور مالیاتی حرفه‌ای</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
+    <div class="background-animation"></div>
+    
     <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="logo">
-                    <a href="index.html">مشاور مالیاتی</a>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">خانه</a></li>
-                    <li><a href="about.html">درباره ما</a></li>
-                    <li><a href="services.html">خدمات</a></li>
-                    <li><a href="blog/">بلاگ</a></li>
-                    <li><a href="contact.html" class="active">تماس</a></li>
-                </ul>
-                <div class="mobile-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
+        <nav class="nav container">
+            <div class="logo">
+                <a href="index.html">مشاور مالیاتی</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">خانه</a></li>
+                <li><a href="about.html">درباره ما</a></li>
+                <li><a href="services.html">خدمات</a></li>
+                <li><a href="contact.html" class="active">تماس با ما</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
     </header>
 
-    <!-- Contact Hero -->
     <section class="contact-hero">
         <div class="container">
             <div class="contact-content">
@@ -42,42 +38,44 @@
         </div>
     </section>
 
-    <!-- Contact Form Section -->
     <section class="contact-form-section">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info">
                     <h2>اطلاعات تماس</h2>
                     <div class="info-item">
-                        <i class="icon-phone"></i>
-                        <div>
-                            <h3>تلفن تماس</h3>
-                            <p>۰۲۱-XXXXXXXX</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="icon-email"></i>
-                        <div>
-                            <h3>ایمیل</h3>
-                            <p>info@example.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="icon-location"></i>
+                        <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h3>آدرس</h3>
-                            <p>تهران، خیابان ولیعصر</p>
+                            <p>تهران، خیابان ولیعصر، خیابان فرشته، پلاک ۱۲۳</p>
                         </div>
                     </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link">اینستاگرام</a>
-                        <a href="#" class="social-link">لینکدین</a>
-                        <a href="#" class="social-link">تلگرام</a>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>تلفن</h3>
+                            <p>۰۲۱-۱۲۳۴۵۶۷۸</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>ایمیل</h3>
+                            <p>info@taxconsultant.ir</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>ساعات کاری</h3>
+                            <p>شنبه تا چهارشنبه: ۹ صبح تا ۶ عصر</p>
+                            <p>پنجشنبه: ۹ صبح تا ۱ ظهر</p>
+                        </div>
                     </div>
                 </div>
                 <div class="contact-form">
                     <h2>فرم تماس</h2>
-                    <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">نام و نام خانوادگی</label>
                             <input type="text" id="name" name="name" required>
@@ -94,9 +92,9 @@
                             <label for="subject">موضوع</label>
                             <select id="subject" name="subject" required>
                                 <option value="">انتخاب کنید</option>
-                                <option value="tax-return">تنظیم اظهارنامه</option>
                                 <option value="consultation">مشاوره مالیاتی</option>
-                                <option value="penalty">پیگیری جریمه</option>
+                                <option value="tax-return">اظهارنامه مالیاتی</option>
+                                <option value="penalty">جریمه مالیاتی</option>
                                 <option value="other">سایر موارد</option>
                             </select>
                         </div>
@@ -111,23 +109,64 @@
         </div>
     </section>
 
-    <!-- Map Section -->
-    <section class="map-section">
+    <section class="branches-section">
         <div class="container">
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.1234567890123!2d51.3890!3d35.6892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQxJzIxLjEiTiA1McKwMjMnMjAuNCJF!5e0!3m2!1sen!2sir!4v1234567890"
-                    width="100%" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
+            <h2>شعب ما</h2>
+            <div class="branches-grid">
+                <div class="branch-card">
+                    <i class="fas fa-building"></i>
+                    <h3>شعبه تهران</h3>
+                    <p>تهران، خیابان ولیعصر، خیابان فرشته، پلاک ۱۲۳</p>
+                    <p>تلفن: ۰۲۱-۱۲۳۴۵۶۷۸</p>
+                </div>
+                <div class="branch-card">
+                    <i class="fas fa-building"></i>
+                    <h3>شعبه اصفهان</h3>
+                    <p>اصفهان، خیابان چهارباغ بالا، پلاک ۴۵۶</p>
+                    <p>تلفن: ۰۳۱-۱۲۳۴۵۶۷۸</p>
+                </div>
+                <div class="branch-card">
+                    <i class="fas fa-building"></i>
+                    <h3>شعبه شیراز</h3>
+                    <p>شیراز، خیابان زند، پلاک ۷۸۹</p>
+                    <p>تلفن: ۰۷۱-۱۲۳۴۵۶۷۸</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="map-section">
+        <div class="container">
+            <h2>موقعیت ما</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.1234567890123!2d51.3890!3d35.6892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQxJzIxLjEiTiA1McKwMjMnMjAuNCJF!5e0!3m2!1sen!2sir!4v1234567890" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-social">
+        <div class="container">
+            <h2>شبکه‌های اجتماعی</h2>
+            <div class="social-grid">
+                <a href="#" class="social-card">
+                    <i class="fab fa-instagram"></i>
+                    <h3>اینستاگرام</h3>
+                    <p>@taxconsultant</p>
+                </a>
+                <a href="#" class="social-card">
+                    <i class="fab fa-telegram"></i>
+                    <h3>تلگرام</h3>
+                    <p>@taxconsultant</p>
+                </a>
+                <a href="#" class="social-card">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>لینکدین</h3>
+                    <p>Tax Consultant</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -138,17 +177,17 @@
                 <div class="footer-section">
                     <h3>تماس سریع</h3>
                     <ul>
-                        <li>تلفن: ۰۲۱-XXXXXXXX</li>
-                        <li>ایمیل: info@example.com</li>
-                        <li>آدرس: تهران، خیابان ولیعصر</li>
+                        <li>تلفن: ۰۲۱-۱۲۳۴۵۶۷۸</li>
+                        <li>ایمیل: info@taxconsultant.ir</li>
+                        <li>آدرس: تهران، خیابان ولیعصر، خیابان فرشته، پلاک ۱۲۳</li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>شبکه‌های اجتماعی</h3>
                     <div class="social-links">
-                        <a href="#" class="social-link">اینستاگرام</a>
-                        <a href="#" class="social-link">لینکدین</a>
-                        <a href="#" class="social-link">تلگرام</a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
                     </div>
                 </div>
             </div>

@@ -2,12 +2,13 @@
 const loadingScreen = document.querySelector('.loading-screen');
 const body = document.body;
 
-// Create Galaxy Animation
+// Create Galaxy Animation - Reduced complexity
 function createGalaxy() {
     const background = document.querySelector('.background-animation');
+    if (!background) return;
     
     // Create stars - reduced number for better performance
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 30; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         star.style.width = `${Math.random() * 2}px`;
@@ -19,17 +20,17 @@ function createGalaxy() {
         background.appendChild(star);
     }
 
-    // Create planets - reduced number for better performance
-    const planetColors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEEAD'];
-    for (let i = 0; i < 3; i++) {
+    // Create planets - reduced number and size
+    const planetColors = ['#FF6B6B', '#4ECDC4'];
+    for (let i = 0; i < 2; i++) {
         const planet = document.createElement('div');
         planet.className = 'planet';
-        const size = Math.random() * 40 + 30;
+        const size = Math.random() * 15 + 15;
         planet.style.width = `${size}px`;
         planet.style.height = `${size}px`;
         planet.style.setProperty('--planet-color', planetColors[i]);
         planet.style.setProperty('--duration', `${Math.random() * 20 + 30}s`);
-        planet.style.setProperty('--orbit-radius', `${Math.random() * 200 + 100}px`);
+        planet.style.setProperty('--orbit-radius', `${Math.random() * 100 + 50}px`);
         planet.style.left = '50%';
         planet.style.top = '50%';
         background.appendChild(planet);
@@ -120,22 +121,26 @@ window.addEventListener('load', () => {
     
     // Fade out loading screen after a short delay
     setTimeout(() => {
-        loadingScreen.classList.add('fade-out');
-        body.classList.remove('loading-active');
-        
-        loadingScreen.addEventListener('transitionend', () => {
-            loadingScreen.remove();
-        }, { once: true });
-    }, 1500);
+        if (loadingScreen) {
+            loadingScreen.classList.add('fade-out');
+            body.classList.remove('loading-active');
+            
+            loadingScreen.addEventListener('transitionend', () => {
+                loadingScreen.remove();
+            }, { once: true });
+        }
+    }, 800);
 });
 
 // Mobile Menu Toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 
-mobileMenuBtn.addEventListener('click', () => {
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-});
+if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    });
+}
 
 // Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -152,18 +157,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Optimized Parallax Effect
-let ticking = false;
+let parallaxTicking = false;
 document.addEventListener('mousemove', (e) => {
-    if (!ticking) {
+    if (!parallaxTicking) {
         window.requestAnimationFrame(() => {
             const background = document.querySelector('.background-animation');
             const mouseX = e.clientX / window.innerWidth;
             const mouseY = e.clientY / window.innerHeight;
             
-            background.style.transform = `translate(${mouseX * 10}px, ${mouseY * 10}px)`;
-            ticking = false;
+            background.style.transform = `translate(${mouseX * 5}px, ${mouseY * 5}px)`;
+            parallaxTicking = false;
         });
-        ticking = true;
+        parallaxTicking = true;
     }
 });
 
@@ -172,13 +177,16 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
         }
     });
 }, {
-    threshold: 0.1
+    threshold: 0.1,
+    rootMargin: '50px'
 });
 
-document.querySelectorAll('.service-card, .footer-section, .contact-item').forEach(el => {
+// Observe elements with animation classes
+document.querySelectorAll('.service-card, .footer-section, .contact-item, .about-text, .stat-item, .experience-card').forEach(el => {
     observer.observe(el);
 });
 
@@ -251,22 +259,24 @@ document.head.appendChild(style);
 let lastScroll = 0;
 const header = document.querySelector('.header');
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll <= 0) {
-        header.style.transform = 'translateY(0)';
-        return;
-    }
-    
-    if (currentScroll > lastScroll && currentScroll > 100) {
-        header.style.transform = 'translateY(-100%)';
-    } else {
-        header.style.transform = 'translateY(0)';
-    }
-    
-    lastScroll = currentScroll;
-});
+if (header) {
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll <= 0) {
+            header.style.transform = 'translateY(0)';
+            return;
+        }
+        
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+        
+        lastScroll = currentScroll;
+    }, { passive: true });
+}
 
 // Create Space Particles
 function createParticles() {
@@ -323,9 +333,9 @@ if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        const name = document.querySelector('#name').value;
-        const email = document.querySelector('#email').value;
-        const message = document.querySelector('#message').value;
+        const name = document.querySelector('#name')?.value;
+        const email = document.querySelector('#email')?.value;
+        const message = document.querySelector('#message')?.value;
         
         if (!name || !email || !message) {
             alert('لطفاً تمام فیلدها را پر کنید');
@@ -342,13 +352,10 @@ if (contactForm) {
     });
 }
 
-// Ensure initial functions are called
-createGalaxy();
-animateFloat();
-// createParticles(); // Uncomment if you still need separate particles
-
-// Initial call to create loading space elements when script loads (optional, can be done on load event)
-// createLoadingSpaceElements(); // Called inside load event now 
+// Initialize everything
+document.addEventListener('DOMContentLoaded', () => {
+    createGalaxy();
+});
 
 // Optimized Loading Screen
 document.addEventListener('DOMContentLoaded', () => {
@@ -495,4 +502,99 @@ function createBackgroundAnimation() {
 }
 
 // Initialize background animation
-createBackgroundAnimation(); 
+createBackgroundAnimation();
+
+// Optimize loading screen
+function initLoadingScreen() {
+    const loadingScreen = document.querySelector('.loading-screen');
+    const body = document.body;
+    
+    if (loadingScreen) {
+        // Create stars for loading screen
+        for (let i = 0; i < 50; i++) {
+            createStar(loadingScreen);
+        }
+        
+        // Show loading screen
+        body.classList.add('loading-active');
+        
+        // Hide loading screen after content is loaded
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loadingScreen.classList.add('fade-out');
+                body.classList.remove('loading-active');
+                body.classList.add('loaded');
+                
+                // Initialize animations after loading
+                initAnimations();
+            }, 1000);
+        });
+    } else {
+        // If no loading screen, just initialize animations
+        body.classList.add('loaded');
+        initAnimations();
+    }
+}
+
+// Optimize animations
+function initAnimations() {
+    // Initialize Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+    });
+
+    // Observe elements with animation classes
+    document.querySelectorAll('.about-text, .stat-item, .experience-card, .contact-content, .contact-info, .contact-form, .map-container').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        observer.observe(el);
+    });
+}
+
+// Optimize parallax effect
+let ticking = false;
+function handleParallax() {
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            document.querySelectorAll('.parallax').forEach(element => {
+                const speed = element.dataset.speed || 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+
+// Optimize scroll handling
+let scrollTimeout;
+function handleScroll() {
+    if (scrollTimeout) {
+        window.cancelAnimationFrame(scrollTimeout);
+    }
+    
+    scrollTimeout = window.requestAnimationFrame(() => {
+        handleParallax();
+        updateScrollProgress();
+    });
+}
+
+// Initialize everything
+document.addEventListener('DOMContentLoaded', () => {
+    initLoadingScreen();
+    initMobileMenu();
+    initSmoothScroll();
+    
+    // Add scroll event listener with throttling
+    window.addEventListener('scroll', handleScroll, { passive: true });
+}); 

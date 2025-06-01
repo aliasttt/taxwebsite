@@ -8,157 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        .about-hero {
-            background: var(--space-gradient);
-            padding: 12rem 0 6rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(108, 99, 255, 0.2) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text {
-            color: var(--text-color);
-        }
-
-        .about-text h1 {
-            font-size: 3.5rem;
-            margin-bottom: 2rem;
-            color: var(--accent-color);
-            text-shadow: var(--neon-glow);
-        }
-
-        .about-text p {
-            font-size: 1.2rem;
-            line-height: 2;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            background: var(--glass-bg);
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--neon-glow);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            text-shadow: var(--neon-glow);
-        }
-
-        .stat-label {
-            color: var(--text-color);
-            font-size: 1.2rem;
-        }
-
-        .about-image {
-            position: relative;
-            transform-style: preserve-3d;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 30px;
-            box-shadow: var(--neon-glow);
-        }
-
-        .experience-section {
-            padding: 8rem 0;
-            background: var(--dark-bg);
-            position: relative;
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .experience-card {
-            background: var(--glass-bg);
-            padding: 3rem;
-            border-radius: 30px;
-            text-align: center;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .experience-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--neon-glow);
-        }
-
-        .experience-card i {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 2rem;
-            text-shadow: var(--neon-glow);
-        }
-
-        .experience-card h3 {
-            color: var(--accent-color);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .experience-card p {
-            color: var(--text-color);
-            line-height: 1.8;
-        }
-
-        @media (max-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="background-animation"></div>
@@ -207,7 +56,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="images/about-image.jpg" alt="مشاوره مالیاتی">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%236C63FF'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Vazir' font-size='24' fill='white'%3Eتصویر درباره ما%3C/text%3E%3C/svg%3E" alt="مشاوره مالیاتی">
                 </div>
             </div>
         </div>
@@ -231,6 +80,91 @@
                     <i class="fas fa-shield-alt"></i>
                     <h3>امنیت و اعتماد</h3>
                     <p>ما متعهد به حفظ محرمانگی اطلاعات مشتریان خود هستیم و تمامی خدمات را با بالاترین استانداردهای امنیتی ارائه می‌دهیم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <h2>تیم متخصص ما</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Crect width='150' height='150' fill='%236C63FF'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Vazir' font-size='16' fill='white'%3Eعضو تیم%3C/text%3E%3C/svg%3E" alt="عضو تیم">
+                    <h3>دکتر محمدی</h3>
+                    <p>مدیر ارشد مالیاتی</p>
+                    <p>با ۲۰ سال سابقه در اداره مالیات</p>
+                </div>
+                <div class="team-member">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Crect width='150' height='150' fill='%236C63FF'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Vazir' font-size='16' fill='white'%3Eعضو تیم%3C/text%3E%3C/svg%3E" alt="عضو تیم">
+                    <h3>خانم احمدی</h3>
+                    <p>مشاور ارشد مالیاتی</p>
+                    <p>با ۱۵ سال تجربه در مشاوره مالیاتی</p>
+                </div>
+                <div class="team-member">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Crect width='150' height='150' fill='%236C63FF'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Vazir' font-size='16' fill='white'%3Eعضو تیم%3C/text%3E%3C/svg%3E" alt="عضو تیم">
+                    <h3>آقای رضایی</h3>
+                    <p>کارشناس مالیاتی</p>
+                    <p>با ۱۰ سال سابقه در امور مالیاتی</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="history-section">
+        <div class="container">
+            <h2>تاریخچه ما</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="year">۱۳۷۰</div>
+                    <div class="content">
+                        <h3>شروع فعالیت</h3>
+                        <p>آغاز فعالیت با یک تیم کوچک متشکل از ۵ نفر</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">۱۳۸۰</div>
+                    <div class="content">
+                        <h3>گسترش خدمات</h3>
+                        <p>افزایش خدمات به تمامی استان‌های کشور</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">۱۳۹۰</div>
+                    <div class="content">
+                        <h3>توسعه تیم</h3>
+                        <p>افزایش تعداد کارشناسان به ۵۰ نفر</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">۱۴۰۰</div>
+                    <div class="content">
+                        <h3>دستاوردهای جدید</h3>
+                        <p>کسب عنوان برترین شرکت مشاوره مالیاتی</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="certificates-section">
+        <div class="container">
+            <h2>گواهینامه‌ها و افتخارات</h2>
+            <div class="certificates-grid">
+                <div class="certificate-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>ISO 9001:2015</h3>
+                    <p>گواهینامه مدیریت کیفیت</p>
+                </div>
+                <div class="certificate-item">
+                    <i class="fas fa-medal"></i>
+                    <h3>برترین شرکت مشاوره مالیاتی</h3>
+                    <p>سال ۱۴۰۲</p>
+                </div>
+                <div class="certificate-item">
+                    <i class="fas fa-trophy"></i>
+                    <h3>شرکت برتر در زمینه مالیات</h3>
+                    <p>از سوی سازمان امور مالیاتی</p>
                 </div>
             </div>
         </div>
